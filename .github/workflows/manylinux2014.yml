@@ -18,7 +18,7 @@ jobs:
     - uses: docker/setup-qemu-action@v1
       name: Set up QEMU
     - name: Build MeCab 
-      uses: ./.github/workflows/actions/build-manylinux/
+      uses: ./.github/workflows/actions/build-manylinux/action_aarch64.yml
     - name: Upload Wheels
       uses: actions/upload-artifact@v1
       with: 
