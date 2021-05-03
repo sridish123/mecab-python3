@@ -23,8 +23,13 @@ done
 
 # fix the wheels (bundles libs)
 for wheel in /github/workspace/wheels/*.whl; do
-  auditwheel repair "$wheel" --plat manylinux1_x86_64 -w /github/workspace/manylinux1-wheels
+  if [ `uname -m` == 'aarch64' ]; then
+    auditwheel repair "$wheel" --plat manylinux2014_aarch64 -w /github/workspace/manylinux2014-wheels
+  else
+    auditwheel repair "$wheel" --plat manylinux1_x86_64 -w /github/workspace/manylinux1-wheels
+  fi
 done
 
 echo "Built wheels:"
 ls /github/workspace/manylinux1-wheels
+ls /github/workspace/manylinux2014-wheels
