@@ -34,5 +34,4 @@ for wheel in /github/workspace/wheels/*.whl; do
 done
 
 echo "Built wheels:"
-ls /github/workspace/manylinux1-wheels
 ls /github/workspace/manylinux2014-wheels
