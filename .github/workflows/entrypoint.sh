@@ -5,10 +5,12 @@ set -e
 # install MeCab
 # TODO specify the commit used here
 git clone --depth=1 git://github.com/taku910/mecab.git
-yum -y update && yum install -y wget
 cd mecab/mecab
-wget 'http://git.savannah.gnu.org/gitweb/?p=config.git;a=blob_plain;f=config.guess;hb=HEAD' -O config.guess
-wget 'http://git.savannah.gnu.org/gitweb/?p=config.git;a=blob_plain;f=config.sub;hb=HEAD' -O config.sub
+if [ `uname -m` == 'aarch64' ]; then
+  yum -y update && yum install -y wget
+  wget 'http://git.savannah.gnu.org/gitweb/?p=config.git;a=blob_plain;f=config.guess;hb=HEAD' -O config.guess
+  wget 'http://git.savannah.gnu.org/gitweb/?p=config.git;a=blob_plain;f=config.sub;hb=HEAD' -O config.sub
+fi
 ./configure --enable-utf8-only
 make
 make install
