@@ -6,8 +6,9 @@ set -e
 # TODO specify the commit used here
 git clone --depth=1 git://github.com/taku910/mecab.git
 yum -y update && yum install -y wget
-wget 'http://git.savannah.gnu.org/gitweb/?p=config.git;a=blob_plain;f=config.guess;hb=HEAD' -O config.guess
 cd mecab/mecab
+wget 'http://git.savannah.gnu.org/gitweb/?p=config.git;a=blob_plain;f=config.guess;hb=HEAD' -O config.guess
+wget 'http://git.savannah.gnu.org/gitweb/?p=config.git;a=blob_plain;f=config.sub;hb=HEAD' -O config.sub
 ./configure --enable-utf8-only
 make
 make install
