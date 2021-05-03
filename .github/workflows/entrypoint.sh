@@ -6,7 +6,7 @@ set -e
 # TODO specify the commit used here
 git clone --depth=1 git://github.com/taku910/mecab.git
 cd mecab/mecab
-./configure #--enable-utf8-only
+./configure --build='aarch64'#--enable-utf8-only
 make
 make install
 
