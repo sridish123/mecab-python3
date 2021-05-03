@@ -1,6 +1,10 @@
 name: build wheels with manylinux docker image
 runs:
     using: 'docker'
-    image: docker://quay.io/pypa/manylinux1_x86_64
+    if [ `uname -m` == 'aarch64' ]; then
+      image: docker://quay.io/pypa/manylinux2014_aarch64
+    else
+      image: docker://quay.io/pypa/manylinux1_x86_64
+    fi
     args:
         - .github/workflows/entrypoint.sh
