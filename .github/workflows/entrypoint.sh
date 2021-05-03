@@ -34,4 +34,8 @@ for wheel in /github/workspace/wheels/*.whl; do
 done
 
 echo "Built wheels:"
-ls /github/workspace/manylinux2014-wheels
+if [ `uname -m` == 'aarch64' ]; then
+  ls /github/workspace/manylinux2014-wheels
+else
+  ls /github/workspace/manylinux1-wheels
+fi
