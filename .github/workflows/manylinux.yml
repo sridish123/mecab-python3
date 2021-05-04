@@ -20,9 +20,9 @@ jobs:
       uses: actions/setup-python@v2
       with:
         python-version: '3.x'
-    - uses: docker/setup-qemu-action@v1
+    - name: Set up QEMU
       if: ${{ matrix.arch == 'aarch64' }}
-      name: Set up QEMU
+      uses: docker/setup-qemu-action@v1
     - name: Build x86_64 MeCab 
       if: ${{ matrix.arch == 'x86_64' }}
       uses: ./.github/workflows/actions/build-manylinux/
