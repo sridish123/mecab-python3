@@ -25,7 +25,7 @@ jobs:
       name: Set up QEMU
     - name: Build x86_64 MeCab 
       if: ${{ matrix.arch == 'x86_64' }}
-      uses: ./.github/workflows/actions/build-manylinux/
+      uses: ./.github/workflows/actions/build-manylinux/action.yml
     - name: Build aarch64 MeCab 
       if: ${{ matrix.arch == 'aarch64' }}
       uses: ./.github/workflows/actions_aarch64/build_manylinux2014
