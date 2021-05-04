@@ -32,8 +32,8 @@ done
 
 # fix the wheels (bundles libs)
 for wheel in /github/workspace/wheels/*.whl; do
-    auditwheel repair "$wheel" --plat manylinux${manylinux_version}_${plat} -w /github/workspace/manylinux${manylinux_version}-wheels
+    auditwheel repair "$wheel" --plat manylinux${manylinux_version}_${plat} -w /github/workspace/manylinux-wheels
 done
 
 echo "Built wheels:"
-ls /github/workspace/manylinux${manylinux_version}-wheels
+ls /github/workspace/manylinux-wheels
